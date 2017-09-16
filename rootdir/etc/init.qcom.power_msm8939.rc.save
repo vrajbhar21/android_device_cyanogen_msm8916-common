@@ -59,29 +59,22 @@ on init
     # Enable core control
     write /sys/devices/system/cpu/cpu0/core_ctl/min_cpus 0
     write /sys/devices/system/cpu/cpu0/core_ctl/max_cpus 4
-    write /sys/devices/system/cpu/cpu0/core_ctl/busy_up_thres 92
-    write /sys/devices/system/cpu/cpu0/core_ctl/busy_down_thres 77
-    write /sys/devices/system/cpu/cpu0/core_ctl/offline_delay_ms "400 400 100 100"
-    write /sys/devices/system/cpu/cpu0/core_ctl/online_delay_ms "1000 5000 6000 6000"
+    write /sys/devices/system/cpu/cpu0/core_ctl/busy_up_thres 95
+    write /sys/devices/system/cpu/cpu0/core_ctl/busy_down_thres 80
+    write /sys/devices/system/cpu/cpu0/core_ctl/offline_delay_ms "400 500 500 600"
+    write /sys/devices/system/cpu/cpu0/core_ctl/online_delay_ms "6000 5000 4000 3000"
     write /sys/devices/system/cpu/cpu0/core_ctl/task_thres 4
     write /sys/devices/system/cpu/cpu0/core_ctl/is_big_cluster 1
     write /sys/devices/system/cpu/cpu0/core_ctl/not_preferred "1 1 1 1"
-
     write /sys/devices/system/cpu/cpu4/core_ctl/min_cpus 1
     write /sys/devices/system/cpu/cpu4/core_ctl/max_cpus 4
-    write /sys/devices/system/cpu/cpu4/core_ctl/busy_up_thres 65
+    write /sys/devices/system/cpu/cpu4/core_ctl/busy_up_thres 55
     write /sys/devices/system/cpu/cpu4/core_ctl/busy_down_thres 40
-    write /sys/devices/system/cpu/cpu4/core_ctl/offline_delay_ms "0 1000 700 400"
-    write /sys/devices/system/cpu/cpu4/core_ctl/online_delay_ms "0 1000 7000 10000"
-    write /sys/devices/system/cpu/cpu4/core_ctl/task_thres "0 50 50 50"
+    write /sys/devices/system/cpu/cpu4/core_ctl/offline_delay_ms "800 800 800 5000"
+    write /sys/devices/system/cpu/cpu4/core_ctl/online_delay_ms "0 4000 6000 8000"
+    write /sys/devices/system/cpu/cpu4/core_ctl/task_thres 4
     write /sys/devices/system/cpu/cpu4/core_ctl/not_preferred "0 0 0 0"
     write /sys/devices/system/cpu/cpu4/core_ctl/always_online_cpu "1 0 0 0"
-    write /sys/devices/system/cpu/cpu4/core_ctl/is_big_cluster 1
-
-    chown system:system /sys/devices/system/cpu/cpu4/core_ctl/min_cpus
-    chown system:system /sys/devices/system/cpu/cpu4/core_ctl/max_cpus
-    chown system:system /sys/devices/system/cpu/cpu0/core_ctl/min_cpus
-    chown system:system /sys/devices/system/cpu/cpu0/core_ctl/min_cpus
 
     # HMP scheduler (big.Little cluster related) settings
     write /proc/sys/kernel/sched_upmigrate 98
